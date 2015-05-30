@@ -1,0 +1,73 @@
+
+body{
+	background-image: url('../img/logo1.png');
+	background-repeat:no-repeat;
+	background-position:center; 
+	background-attachment: fixed;
+	 font-family: 'Ubuntu Mono';
+	 font-size: 0.8em;
+}
+
+.centered {
+  top:10%;
+  left:8%;
+  margin-top: 1%;
+}
+
+.glyphIconBig{
+	font-size: 2em;
+}
+
+.clickable{
+	cursor:pointer;
+}
+
+.hideWithShadow{
+	display:none;
+}
+
+.mainDiv{
+	opacity:0.95;
+	min-height: 35em;
+	background-color: #FFFFFF;
+	text-align: center;
+	padding:1em;
+	-webkit-border-radius: 3em;
+	-moz-border-radius: 3em;
+	border-radius: 3em;
+	border: 0.3em ridge blue;
+	width: 80% !important;
+}
+
+
+.popup{
+	padding: 1%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display:none;
+	position: fixed;
+	left:40%;
+	top:20%;
+	background-color:rgba(0, 0, 0, 1);
+	z-index:100;
+}
+
+.shadow{
+	display:none;
+	top: 0;
+	position: fixed;
+	width:100%;
+	height:100%;
+	background-color:rgba(0, 0, 0, 0.5);
+	z-index:20;
+}
+
+.addUser{
+	padding-left: 2%;
+	float:left;
+}
+
+#Ubuntufont{ 
+  	font-family: 'Ubuntu Mono';
+  }
