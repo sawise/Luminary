@@ -27,7 +27,8 @@ function searchUsers(input){
 }
 
 function toggleEdit(userID){
-    $("#editUser").load("ajax/edituser.php?userid="+userID,function(){
+    $("#editUser").load("ajax/edituser.php?userid="+userID,function(data){
+
         $("#editUser").slideToggle("fast");
         $("#shadow").fadeToggle("fast");
     });
@@ -50,6 +51,7 @@ function updateUser(){
         $("#update_user_personalid").val().length == 10) {
         alert("Personnumret ska skrivas såhär: YYYYMMDD-XXXX");
     } else {
+
         $.post("ajax/sendupdateuser.php",
         {
           id: $("#update_user_id").val(),
@@ -58,9 +60,14 @@ function updateUser(){
           personalid: $("#update_user_personalid").val(),
           employmentdate: $("#update_user_employmentdate").val()
         },
-        function(){
-            hideShadow();
-            pageLoaded();
+        function(data){
+            if(data.indexOf("success") > -1){
+                hideShadow();
+                pageLoaded();
+            } else {
+                alert("Databasfel, försök igen senare");    
+            }
+            
         });
     }
 }
@@ -82,9 +89,13 @@ function addUser(){
           personalid: $("#create_user_personalid").val(),
           employmentdate: $("#create_user_employmentdate").val()
         },
-        function(){
-            hideShadow();
-            pageLoaded();
+        function(data){
+            if(data.indexOf("success") > -1){
+                hideShadow();
+                pageLoaded();
+            } else {
+                alert("Databasfel, försök igen senare");    
+            }
         });    
     }
     

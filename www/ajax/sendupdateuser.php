@@ -9,3 +9,6 @@ $personalId = $_POST['personalid'];
 
 $userID = $db->updateUser($_POST['id'], $_POST['firstname'],$_POST['lastname'], $crypt->simple_encrypt($personalId),$date->format('Y-m-d'));
 	
+if($userID){
+	echo 'success';
+}
