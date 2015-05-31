@@ -27,7 +27,7 @@ function searchUsers(input){
 }
 
 function toggleEdit(userID){
-    $("#editUser").load("ajax/edituser.php?userid="+userID,function(data){
+    $("#editUser").load("ajax/updateuser.php?userid="+userID,function(data){
 
         $("#editUser").slideToggle("fast");
         $("#shadow").fadeToggle("fast");

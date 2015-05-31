@@ -6,6 +6,7 @@
 ?>
 <head>
   <meta charset="utf-8" /> 
+  <title>Sams persondatabas</title>
   <script src="js/jquery-2.0.3.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>

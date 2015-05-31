@@ -7,6 +7,7 @@ $crypt = new Crypt();
 $user = $db->getUser($_GET['userid']);
 
     ?>
+<div class="popupHeader">Redigera persondata</div>
 <input id="update_user_id" type="hidden" value="<?=$user->id?>">
 <div><input id="update_user_firstname" class="form-control" type="text" value="<?=$user->first_name?>"></div>
 <div><input id="update_user_lastname" class="form-control" type="text" value="<?=$user->last_name?>"></div>

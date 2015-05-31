@@ -4,6 +4,7 @@ require_once('../../config.php');
 require_once(ROOT_PATH.'/includes.php');
 
     ?>
+    <div  class="popupHeader">Skapa persondata</div>
 <div><input id="create_user_firstname" class="form-control" type="text" placeholder="Förnamn"></div>
 <div><input id="create_user_lastname" class="form-control" type="text" placeholder="Efternamn"></div>
 <div><input id="create_user_personalid" class="form-control" type="text" placeholder="Personnummer(yyyymmdd-xxxx)"></div>

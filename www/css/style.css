@@ -53,6 +53,14 @@ body{
 	z-index:100;
 }
 
+.popupHeader{
+	text-shadow: 3px 0px 10px rgba(150, 148, 255, 1);
+	color:#FFF;
+	margin-bottom: 0.5em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 .shadow{
 	display:none;
 	top: 0;

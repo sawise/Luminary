@@ -24,7 +24,7 @@ $searchstring = $_GET['searchstring'];
 	<?php
 		foreach($searchresult AS $searchitem)
 		{ ?>
-			<tr class="clickable" onclick="toggleEdit(<?=$searchitem->id?>)">
+			<tr title="Klicka för att redigera" class="clickable" onclick="toggleEdit(<?=$searchitem->id?>)">
 		      <td><?=$searchitem->first_name?></td>
 		      <td><?=$searchitem->last_name?></td>
 		      <td><?=$crypt->simple_decrypt($searchitem->personal_id)?></td>
