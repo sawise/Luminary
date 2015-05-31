@@ -9,3 +9,6 @@ $personalid = $_POST['personalid'];
 
 $userID = $db->createUser($_POST['firstname'],$_POST['lastname'], $crypt->simple_encrypt($personalid),$date->format('Y-m-d'));
 	
+if($userID){
+	echo 'success';
+}
