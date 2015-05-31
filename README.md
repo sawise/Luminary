@@ -1,6 +1,7 @@
 # Task for Luminary
 
-Make a simple personal database with PHP.
+Make a simple personal database with PHP. 
+To install this, simple clone the code and import the sqldump to the MySQL server. The config-file might need to be edited according to your credentials for your MySQL server.
 
 Result:
 ![alt tag](https://raw.github.com/sawise/Luminary/master/readmeimg/01.png)
