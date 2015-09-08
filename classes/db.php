@@ -14,19 +14,19 @@
 		private $users_sql = "select * from users";
 
 		public function deleteUser($id){
-	      $sql = "delete FROM users WHERE id = :id";
-	      $sth = $this->dbh->prepare($sql);
-	      $sth->bindParam(':id', $id, PDO::PARAM_INT);
-	      $sth->execute();
+		      $sql = "delete FROM users WHERE id = :id";
+		      $sth = $this->dbh->prepare($sql);
+		      $sth->bindParam(':id', $id, PDO::PARAM_INT);
+		      $sth->execute();
+	
+		      if ($sth->rowCount() > 0) {
+		        return true;
+		      } else {
+		        return false;
+		      }
+	    	}
 
-	      if ($sth->rowCount() > 0) {
-	        return true;
-	      } else {
-	        return false;
-	      }
-	    }
-
-    	public function createUser($firstname, $lastname, $personalId, $employmentdate){
+    		public function createUser($firstname, $lastname, $personalId, $employmentdate){
 			$data = array($firstname, $lastname, $personalId,$employmentdate);
 			$sth = $this->dbh->prepare("INSERT INTO users (first_name,last_name, personal_id, employment_date) VALUES (?,?,?,?)");
 			$sth->execute($data);
@@ -39,17 +39,17 @@
 		}
 	    
 
-	    public function updateUser($id, $firstname,$lastname, $personalid, $employmentdate){
-	      $data = array($firstname,$lastname, $personalid,$employmentdate, $id);
-	      $sth = $this->dbh->prepare("UPDATE users SET first_name = ?, last_name = ?, personal_id = ?, employment_date = ? WHERE id = ?");
-	      $sth->execute($data);
-
-	      if($sth->execute($data)) {
-	        return true;
-	      } else {
-	        return false;
-	      }
-	    }
+		public function updateUser($id, $firstname,$lastname, $personalid, $employmentdate){
+			$data = array($firstname,$lastname, $personalid,$employmentdate, $id);
+			$sth = $this->dbh->prepare("UPDATE users SET first_name = ?, last_name = ?, personal_id = ?, employment_date = ? WHERE id = ?");
+			$sth->execute($data);
+			
+			if($sth->execute($data)) {
+			return true;
+			} else {
+			return false;
+			}
+		}
 
 		
 
@@ -86,16 +86,14 @@
 		}
 
 		public function search($text) {
-			
-			
 			if($text === 0 || $text === "0"){ //if string is 0 it will show all data
 				$where_statements = "";				
 			} else if(strpos($text, "__")) { //if the string contains __ (two underscores) it will search for lastname and firstname
-	            $searcharray = explode("__", $text);
-	            $where_statements = " WHERE first_name = '{$searcharray[0]}' AND last_name LIKE '%{$searcharray[1]}%'";
-        	} else {
-        		$where_statements = " WHERE first_name LIKE '%{$text}%' OR last_name LIKE '%{$text}%'";
-        	}
+		            $searcharray = explode("__", $text);
+		            $where_statements = " WHERE first_name = '{$searcharray[0]}' AND last_name LIKE '%{$searcharray[1]}%'";
+	        	} else {
+	        		$where_statements = " WHERE first_name LIKE '%{$text}%' OR last_name LIKE '%{$text}%'";
+	        	}
 			$sth = $this->dbh->query($this->users_sql.$where_statements.' ORDER BY id DESC');
 			$sth->setFetchMode(PDO::FETCH_CLASS, 'Users');
 
